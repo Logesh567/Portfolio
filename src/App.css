@@ -1,38 +1,221 @@
-.App {
-  text-align: center;
+/* ── FONTS ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── RESET ─────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ── SCROLLBAR ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
 }
-
-.App-link {
-  color: #61dafb;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
+/* scrollbar thumb color is set dynamically in JSX via <style> tag */
 
-@keyframes App-logo-spin {
+/* ── ANIMATIONS ────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dot {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1;   }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── NAV ───────────────────────────────────────────────────────────────── */
+.nav-btn {
+  transition: color 0.2s ease;
+}
+
+.theme-dot {
+  transition: transform 0.2s ease;
+}
+.theme-dot:hover {
+  transform: scale(1.2);
+}
+
+.mob-nav-btn {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ── CARDS ─────────────────────────────────────────────────────────────── */
+.proj-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ── BUTTONS ───────────────────────────────────────────────────────────── */
+.submit-btn {
+  transition: opacity 0.2s ease;
+}
+.submit-btn:hover {
+  opacity: 0.88;
+}
+
+.resume-btn {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ── FORM ELEMENTS ─────────────────────────────────────────────────────── */
+input,
+textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ── HERO ANIMATION ────────────────────────────────────────────────────── */
+.hero-section {
+  animation: fadeUp 0.8s ease both;
+}
+
+/* ── MOBILE MENU ───────────────────────────────────────────────────────── */
+.mobile-menu {
+  animation: slideDown 0.2s ease;
+}
+
+/* ── SKILL BAR ─────────────────────────────────────────────────────────── */
+.skill-bar-fill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── PROJECT CARD REVEAL ───────────────────────────────────────────────── */
+.proj-card-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.proj-card-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* ── RESPONSIVE BREAKPOINTS ────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 72px 20px !important;
+  }
+
+  .nav-desktop-links {
+    display: none !important;
+  }
+
+  .nav-desktop-actions {
+    display: none !important;
+  }
+
+  .nav-mobile-actions {
+    display: flex !important;
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 11vw, 56px) !important;
+    letter-spacing: -2px !important;
+  }
+
+  .profile-card-desktop {
+    display: none !important;
+  }
+
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .form-name-email-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .footer-bar {
+    padding: 20px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  .stats-row {
+    gap: 24px !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 34px !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .cta-buttons {
+    flex-direction: column !important;
+  }
+
+  .cta-buttons a,
+  .cta-buttons button {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
   }
 }
