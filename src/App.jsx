@@ -17,10 +17,10 @@ const SKILLS = [
 ];
 
 const PROJECTS = [
-  { title:"Student Result Portal",    desc:"A full-stack web app to manage and display student results with admin login, CRUD operations, and MySQL backend.", tags:["Python","HTML/CSS","MySQL"], icon:"🎓", year:"2024" },
-  { title:"Inventory Manager",        desc:"Desktop-style inventory tracking system with search, filters, and real-time stock updates built during internship.", tags:["JavaScript","MySQL","CSS"],  icon:"📦", year:"2025" },
+  { title:"SparkCRM — Real Estate CRM SaaS", desc:"A full-stack multi-tenant CRM for real estate builders with lead management, project tracking, Facebook Lead Ads integration via Meta Graph API, and 7-role access control.", tags:["React","Node.js","MySQL","JWT"], icon:"🏢", year:"2025" },
+  { title:"AI Resume Builder", desc:"An AI-powered resume builder with a React frontend and Django REST API backend, using Groq AI to suggest bullet points, summaries, and skills in real time.", tags:["React","Django","Groq AI"], icon:"🤖", year:"2025" },
+  { title:"Feedesk — Fee Management SaaS", desc:"A fee management SaaS for coaching and activity centers with role-based access, automated payment recording, PDF receipts, and Brevo-powered email reminders.", tags:["React","Node.js","MySQL"], icon:"📬", year:"2025" },
   { title:"Personal Portfolio",       desc:"This very portfolio — designed and built from scratch using React with theme switching and responsive layout.",    tags:["React","CSS","JavaScript"],  icon:"💼", year:"2025" },
-  { title:"Library Management System",desc:"A Python-based CLI tool to manage book records, borrower details, and due-date tracking with a MySQL database.",   tags:["Python","MySQL"],            icon:"📚", year:"2023" },
 ];
 
 const EDUCATION = [
